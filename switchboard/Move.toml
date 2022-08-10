@@ -10,8 +10,7 @@ Switchboard = '0x28D1992CE2FBD74C539CC58337DC678F72FC656DD41AAD534FB0BC8C01EAF55
 [dev-addresses]
 Switchboard = '0x3'
 
-[dependencies]
-# MoveNursery = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/move-stdlib/nursery/", rev = "main" }
-MoveStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/move-stdlib/", rev = "main" }
-AptosFramework = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-framework/", rev = "main" }
-AptosStdlib = { git = "https://github.com/aptos-labs/aptos-core.git", subdir = "aptos-move/framework/aptos-stdlib/", rev = "main" }
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+subdir = "aptos-move/framework/aptos-framework/"
+rev = "908aff867fcc1e1b12f058d474329097ab96f14b"
