@@ -1,5 +1,5 @@
 module Switchboard::Aggregator {
-    use AptosFramework::timestamp;
+    use aptos_framework::timestamp;
     use Switchboard::Math::{Self, Num};
     use std::bcs;
     use std::hash;
@@ -264,5 +264,56 @@ module Switchboard::Aggregator {
     public fun get_current_round_oracle_keys(addr: address): vector<address> acquires Aggregator {
         let aggregator = borrow_global<Aggregator>(addr);
         aggregator.current_round.oracle_keys
+    }
+
+    public fun new_test(account: &signer) {
+        let aggregator = Aggregator {
+            addr: @0x55,
+            name: vector::empty(),
+            metadata: vector::empty(),
+            queue_address: @0x55,
+            batch_size: 3,
+            min_oracle_results: 1,
+            min_job_results: 1,
+            min_update_delay_seconds: 5,
+            start_after: 0,
+            variance_threshold: Math::num(0, 0, false),
+            force_report_period: 0,
+            expiration: 0,
+            next_allowed_update_time: 0,
+            is_locked: false,
+            crank_address: @0x55,
+            latest_confirmed_round: AggregatorRound {
+                round_open_timestamp: 0,
+                result: Math::num(3141592653, 9, false),
+                std_deviation: Math::num(3141592653, 9, false),
+                min_response: Math::num(3141592653, 9, false),
+                max_response: Math::num(3141592653, 9, false),
+                oracle_keys: vector::empty(),
+                medians: vector::empty(),
+                current_payout: vector::empty(),
+                error_fulfilled: vector::empty(),
+            },
+            current_round: AggregatorRound {
+                round_open_timestamp: 0,
+                result: Math::zero(),
+                std_deviation: Math::zero(),
+                min_response: Math::zero(),
+                max_response: Math::zero(),
+                oracle_keys: vector::empty(),
+                medians: vector::empty(),
+                current_payout: vector::empty(),
+                error_fulfilled: vector::empty(),
+            },
+            job_keys: vector::empty(),
+            job_weights: vector::empty(),
+            job_hashes: vector::empty(),
+            jobs_checksum: vector::empty(),
+            authority: @0x55,
+            disable_crank: false,
+            created_at: 0,
+        };
+
+        move_to<Aggregator>(account, aggregator);
     }
 }

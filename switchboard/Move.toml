@@ -5,7 +5,7 @@ version = "0.0.0"
 [addresses]
 Std = '0x1'
 AptosFramework = '0x1'
-Switchboard = '_'
+Switchboard = '0x28D1992CE2FBD74C539CC58337DC678F72FC656DD41AAD534FB0BC8C01EAF552'
 
 [dev-addresses]
 Switchboard = '0x3'
