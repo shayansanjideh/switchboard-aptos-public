@@ -1,5 +1,8 @@
 module Switchboard::Math {
 
+    #[test_only]
+    use std::vector;
+
     const EINCORRECT_STD_DEV: u64 = 0;
     const ENO_LENGTH_PASSED_IN_STD_DEV: u64 = 1;
     const EMORE_THAN_18_DECIMALS: u64 = 2;
@@ -307,10 +310,10 @@ module Switchboard::Math {
         vector::push_back<Num>(&mut vec, decimal4);
         vector::push_back<Num>(&mut vec, decimal5);
 
-        // std_deviation
-        let t1 = std_deviation(&vec);
-
-        std::debug::print(&t1);
+//        // std_deviation
+//        let t1 = std_deviation(&vec);
+//
+//        std::debug::print(&t1);
 
        // let out = zero();
        // sqrt(&num(340282366920938463463374607431, 9, false), &mut out);
